@@ -1,6 +1,6 @@
-**Phase 3: Application Selection for Performance Testing**
+# Phase 3: Application Selection for Performance Testing
 
-**1\. Application Selection Matrix**
+## 1. Application Selection Matrix**
 
 In this phase, the goal is to select applications that represent different workload types for performance evaluation. Below is the **Application Selection Matrix** with justifications for choosing each application.
 
@@ -12,45 +12,43 @@ In this phase, the goal is to select applications that represent different workl
 | **Network-intensive** | **iperf3** | Measures network bandwidth and latency for network testing. |
 | **Server Application** | **nginx** | A popular web server used to test server load by handling many simultaneous connections. |
 
-**2\. Installation Documentation**
+## 2. Installation Documentation**
 
 The following installation steps outline how to install each selected application for testing. These steps assume you're working on a Linux-based server (Ubuntu/Debian-based).
 
-**For stress-ng (CPU and RAM-intensive)**
+ ### For stress-ng (CPU and RAM-intensive)**
 
 - Update system packages
 - sudo apt-get update
 - Install stress-ng
 - sudo apt-get install stress-ng
 
+[picture]
+
+ - Run stress-ng for CPU stress testing
+
+-  stress-ng --cpu 4 --timeout 60s
+
 \[picture\]
 
-Run stress-ng for CPU stress testing
-
-stress-ng --cpu 4 --timeout 60s
-
-\[picture\]
-
-- \# Run stress-ng for RAM stress testing
+-  Run stress-ng for RAM stress testing
 - stress-ng --vm 2 --vm-bytes 2G --timeout 60s
 
-**For fio (I/O-intensive)**
+### For fio (I/O-intensive)
 
 - Update system packages
 - sudo apt-get update
+- install fio
+- sudo apt-get install fio
 
-nstall fio
-
-sudo apt-get install fio
-
-**For iperf3 (Network-intensive)**
+### For iperf3 (Network-intensive)
 
 - Update system packages
 - sudo apt-get update
 - nstall iperf3
 - sudo apt-get install iperf3
 
-**For nginx (Server Application)**
+### For nginx (Server Application)**
 
 - Update system packages
 - sudo apt-get update
@@ -59,7 +57,7 @@ sudo apt-get install fio
 - Start nginx server
 - sudo systemctl start nginx
 
-**3\. Expected Resource Profiles**
+## 3. Expected Resource Profiles
 
 Below are the expected resource profiles for each application, based on anticipated resource usage during the tests:
 
@@ -71,7 +69,7 @@ Below are the expected resource profiles for each application, based on anticipa
 | **iperf3** | Low (network testing) | Low (minimal memory) | Low (no disk usage) | Very High (network throughput) |
 | **nginx** | Medium | Low (memory usage for serving static files) | Low (serving static content) | High (due to many connections) |
 
-**4\. Monitoring Strategy**
+## 4. Monitoring Strategy
 
 To measure performance, the following tools and commands will be used to monitor CPU, RAM, I/O, and network usage during the tests.
 
@@ -120,7 +118,7 @@ To measure performance, the following tools and commands will be used to monitor
 | **Network-intensive** | iperf3 | sudo apt-get install iperf3 | iperf3 is already the newest version (3.16-1build2) | Application ready for server-mode execution. |
 | **Monitoring** | iostat | iostat -xz 1 | Snapshot shows sda and dm-0 disk metrics | Observed 95.91 w_await and 2.09% %util for sda device. |
 
-**5\. Conclusion**
+## 5. Conclusion
 
 The selected applications represent a broad range of workloads across CPU, RAM, I/O, network, and server application types. Using these applications will help simulate real-world conditions and evaluate the performance of a system under stress. Each tool is installed and monitored using standard system performance monitoring utilities to track CPU, memory, disk I/O, and network usage.
 
