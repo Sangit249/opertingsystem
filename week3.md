@@ -14,8 +14,7 @@ In this phase, the goal is to select applications that represent different workl
 
 ## 2. Installation Documentation
 
-The following installation steps outline how to install each selected application for testing. These steps assume you're working on a Linux-based server (Ubuntu/Debian-based).
-
+The following installation steps outline how to install each selected application for testing. 
  ### For stress-ng (CPU and RAM-intensive)
 
 - Update system packages
