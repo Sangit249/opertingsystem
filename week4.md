@@ -8,24 +8,21 @@
 
 - **Commands Executed via SSH:**
 
-\# Creating the new administrative user
+  - Creating the new administrative user
 
-sudo adduser sangit_admin
+  - sudo adduser sangit_admin
 
-\# Granting administrative privileges via the sudo group
+   - Granting administrative privileges via the sudo group
 
-sudo usermod -aG sudo sangit_admin
+  - sudo usermod -aG sudo sangit_admin
 
 - **Explanation:** Creating a separate admin user prevents the daily use of the root account, reducing the risk of accidental system-wide damage.
 - **Evidence of Success:**
+       groups sangit_admin
 
-Bash
+ The output shows sangit_admin : sangit_admin sudo, confirming successful privilege management.
 
-groups sangit_admin
-
-_Journal Note:_ The output shows sangit_admin : sangit_admin sudo, confirming successful privilege management.
-
-**2\. SSH Key-Based Authentication**
+## 2. SSH Key-Based Authentication
 
 **Objective:** To replace password-based authentication with cryptographic keys to prevent brute-force attacks.
 
@@ -33,36 +30,30 @@ _Journal Note:_ The output shows sangit_admin : sangit_admin sudo, confirming su
 
 - **Key Generation (Workstation - 192.168.56.104):**
 
-Bash
+    - ssh-keygen -t ed25519 -f ~/.ssh/sangit_key
 
-ssh-keygen -t ed25519 -f ~/.ssh/sangit_key
-
-_Explanation:_ Ed25519 was selected over RSA for its superior security-to-performance ratio and smaller key size.
+ Ed25519 was selected over RSA for its superior security-to-performance ratio and smaller key size.
 
 - **Key Deployment:**
 
-Bash
+    - ssh-copy-id -i ~/.ssh/sangit_key.pub sangit_admin@192.168.56.105
 
-ssh-copy-id -i ~/.ssh/sangit_key.pub sangit_admin@192.168.56.105
+- Server Hardening (/etc/ssh/sshd_config):**
 
-- **Server Hardening (/etc/ssh/sshd_config):**
+  - Configured via SSH as required
 
-Bash
+  - PubkeyAuthentication yes
 
-\# Configured via SSH as required
+  - PasswordAuthentication no
 
-PubkeyAuthentication yes
-
-PasswordAuthentication no
-
-PermitRootLogin no
+  - PermitRootLogin no
 
 **Quantitative Trade-off Analysis:**
 
 - **Security Gain:** Setting PasswordAuthentication no eliminates 100% of automated password-guessing (brute-force) attempts.
 - **Operational Risk:** If the private key file on the workstation is lost or corrupted, administrative access is completely lost, requiring physical or console-level intervention.
 
-**3\. Firewall Implementation (UFW)**
+## 3. Firewall Implementation (UFW)**
 
 **Objective:** To restrict the server's attack surface by permitting traffic only from a verified administrative workstation.
 
@@ -70,21 +61,16 @@ PermitRootLogin no
 
 - **Setting Strict Defaults:**
 
-Bash
+  - sudo ufw default deny incoming
 
-sudo ufw default deny incoming
-
-sudo ufw default allow outgoing
+   - sudo ufw default allow outgoing
 
 - **Host-Restricted SSH Access:**
-
-Bash
-
-sudo ufw allow from 192.168.56.104 to any port 22 proto tcp
+ - sudo ufw allow from 192.168.56.104 to any port 22 proto tcp
 
 - **Explanation:** This rule explicitly binds SSH access to the Workstation IP found in previous session logs.
 
-Firewall Ruleset Documentation:
+## Firewall Ruleset Documentation:
 
 Capture the output of sudo ufw status verbose:
 
@@ -92,7 +78,7 @@ Capture the output of sudo ufw status verbose:
 - **Logging:** on (low)
 - **Rules:** 22/tcp ALLOW IN 192.168.56.104
 
-**4\. Configuration Comparisons (Before vs. After)**
+## 4. Configuration Comparisons (Before vs. After)
 
 To demonstrate infrastructure evolution, the following transitions were documented:
 
@@ -103,11 +89,11 @@ To demonstrate infrastructure evolution, the following transitions were document
 | **Firewall** | Inactive/Open | Active/Restricted to 192.168.56.104 |
 | **User Access** | General user (sangit) | Audited admin (sangit_admin) |
 
-**5\. Critical**
 
-**Reflection & Problem Solving**
 
-**The "Learning Journey":**
+## 5. Reflection & Problem Solving
+
+# The "Learning Journey":
 
 - **Technical Challenge:** During the configuration of sshd_config, an initial error in syntax caused the SSH service to fail to restart.
 - **Resolution:** By reviewing the system logs (journalctl -xe), the typo was identified and corrected before the session was closed, avoiding a permanent lockout.
