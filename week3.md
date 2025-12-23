@@ -1,6 +1,6 @@
 # Phase 3: Application Selection for Performance Testing
 
-## 1. Application Selection Matrix**
+## 1. Application Selection Matrix
 
 In this phase, the goal is to select applications that represent different workload types for performance evaluation. Below is the **Application Selection Matrix** with justifications for choosing each application.
 
@@ -12,11 +12,11 @@ In this phase, the goal is to select applications that represent different workl
 | **Network-intensive** | **iperf3** | Measures network bandwidth and latency for network testing. |
 | **Server Application** | **nginx** | A popular web server used to test server load by handling many simultaneous connections. |
 
-## 2. Installation Documentation**
+## 2. Installation Documentation
 
 The following installation steps outline how to install each selected application for testing. These steps assume you're working on a Linux-based server (Ubuntu/Debian-based).
 
- ### For stress-ng (CPU and RAM-intensive)**
+ ### For stress-ng (CPU and RAM-intensive)
 
 - Update system packages
 - sudo apt-get update
