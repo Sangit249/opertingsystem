@@ -31,7 +31,7 @@ Before inducing load, I established a "clean" baseline to compare against stress
   
 - **Observation:** The system showed minimal CPU usage (\$<2\\%\$) and low memory pressure, establishing the "normal" state of the hardened OS.
 
-### 2.2 Application Load Testing**
+### 2.2 Application Load Testing
 
 I used the stress tool to simulate heavy workloads on different subsystems.
 
@@ -52,7 +52,7 @@ I used the stress tool to simulate heavy workloads on different subsystems.
   ![iostat](2iostat.png)
   - _Behavior:_ High disk utilization (\$>90\\%\$) was recorded in iostat, identifying storage as a primary bottleneck.
 
-### 2.3 Network & Service Response Testing**
+### 2.3 Network & Service Response Testing
 
 I used Apache Bench to test the concurrency limits of the web service.
 
@@ -64,19 +64,19 @@ I used Apache Bench to test the concurrency limits of the web service.
 
 Through the load testing in Section 2, I identified two critical bottlenecks:
 
-# Bottleneck 1: Disk I/O Saturation (The Primary Bottleneck)
+## Bottleneck 1: Disk I/O Saturation (The Primary Bottleneck)
 
 - **Evidence:** The **98.51% Disk Utilization** seen in 2iostat.png.
 - **Cause:** The system was likely "thrashing." When memory gets full, the Linux kernel moves data to the Swap partition on the disk. Because the disk is much slower than RAM, the system becomes unresponsive.
 - **Impact:** This is why the system feels "frozen" during heavy use.
 
-# Bottleneck 2: TCP Connection Backlog (The Secondary Bottleneck)
+## Bottleneck 2: TCP Connection Backlog (The Secondary Bottleneck)
 
 - **Evidence:** In the initial testing (before optimization), high concurrency would cause connection timeouts.
 - **Cause:** The default net.core.somaxconn (usually 128) was too low for a burst of 100 concurrent users.
 - **Impact:** Legitimate users would receive "Connection Refused" errors during traffic spikes
 
-## 4\. Optimization Testing & Evidence**
+## 4\. Optimization Testing & Evidence
 
 I implemented the following two improvements to remediate the bottlenecks identified above.
 
