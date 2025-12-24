@@ -42,6 +42,13 @@ Result:
 
   ![monitor](monitoringscript.png)
 
+  before stress:
+  ![picture](beforestress.png)
+
+
+  after stress:
+  ![picture](afterstress.png)
+
 ## 3. Quantitative Trade-off Analysis
 
 - **Security vs. Usability (AppArmor):** While AppArmor greatly enhances security, it increases administrative overhead. For example, changing a web root requires manual profile updates or the service will fail to start.
