@@ -11,43 +11,43 @@ Each week addresses a specific learning outcome with practical evidence, CLI com
 
 ### 🔹 Week 1 – System Planning & OS Selection
 - Objective: Environment planning, OS justification, architecture decisions  
-👉 [View Week 1](./Week1.md)
+👉 [View Week 1](./week1.md)
 
 ---
 
 ### 🔹 Week 2 – Installation & Initial Configuration
 - Objective: OS installation, networking setup, user configuration  
-👉 [View Week 2](./Week2.md)
+👉 [View Week 2](./week2.md)
 
 ---
 
 ### 🔹 Week 3 – Application Selection for Performance Testing
 - Objective: Selecting CPU, memory, disk, network workloads  
-👉 [View Week 3](./Week3.md)
+👉 [View Week 3](./week3.md)
 
 ---
 
 ### 🔹 Week 4 – Security Configuration & Hardening
 - Objective: SSH hardening, firewall rules, user privilege management  
-👉 [View Week 4](./Week4.md)
+👉 [View Week 4](./week4.md)
 
 ---
 
 ### 🔹 Week 5 – Security Baseline & Risk Mitigation
 - Objective: Security audits, baseline enforcement, trade-off analysis  
-👉 [View Week 5](./Week5.md)
+👉 [View Week 5](./week5.md)
 
 ---
 
 ### 🔹 Week 6 – Performance Evaluation & Optimisation
 - Objective: Baseline vs load testing, bottleneck identification, kernel tuning  
-👉 [View Week 6](./Week6.md)
+👉 [View Week 6](./week6.md)
 
 ---
 
 ### 🔹 Week 7 – Final Reflection & Evaluation
 - Objective: Overall system evaluation, learning outcomes, future improvements  
-👉 [View Week 7](./Week7.md)
+👉 [View Week 7](./week7.md)
 
 ---
 
