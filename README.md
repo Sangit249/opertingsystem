@@ -1,25 +1,70 @@
-
+z
 Name : Sangit Khadka
 
 Student id: A00022268
 
-### Week 1 – System Planning & OS Selection  
-👉 [Open Week 1](./week1)
+# Operating System Performance Evaluation Project
 
-### Week 2 – OS Installation & Initial Configuration  
-👉 [Open Week 2](./week2)
+This repository documents a 7-week operating systems project focused on secure system deployment, performance testing, monitoring, and optimisation.  
+Each week addresses a specific learning outcome with practical evidence, CLI commands, and critical analysis.
 
-### Week 3 – Application Selection for Performance Testing  
-👉 [Open Week 3](./week3)
+---
 
-### Week 4 – Security Configuration & Hardening  
-👉 [Open Week 4](./week4)
+## 📅 Weekly Breakdown (Direct Links)
 
-### Week 5 – Security Baseline & Risk Mitigation  
-👉 [Open Week 5](./week5)
+### 🔹 Week 1 – System Planning & OS Selection
+- Objective: Environment planning, OS justification, architecture decisions  
+👉 [View Week1](./Week-1/PHASE_1.md)
 
-### Week 6 – Performance Evaluation & Optimisation  
-👉 [Open Week 6](./week6)
+---
 
-### Week 7 – Final Evaluation & Reflection  
-👉 [Open Week 7](./week7)
+### 🔹 Week 2 – Installation & Initial Configuration
+- Objective: OS installation, networking setup, user configuration  
+👉 [View Week2](./Week-2/PHASE_2.md)
+
+---
+
+### 🔹 Week 3 – Application Selection for Performance Testing
+- Objective: Selecting CPU, memory, disk, network workloads  
+👉 [View Week3](./Week-3/PHASE_3.md)
+
+---
+
+### 🔹 Week 4 – Security Configuration & Hardening
+- Objective: SSH hardening, firewall rules, user privilege management  
+👉 [View Week4](./Week-4/PHASE_4.md)
+
+---
+
+### 🔹 Week 5 – Security Baseline & Risk Mitigation
+- Objective: Security audits, baseline enforcement, trade-off analysis  
+👉 [View Week5](./Week-5/PHASE_5.md)
+
+---
+
+### 🔹 Week 6 – Performance Evaluation & Optimisation
+- Objective: Baseline vs load testing, bottleneck identification, kernel tuning  
+👉 [View Week6](./Week-6/PHASE_6.md)
+
+---
+
+### 🔹 Week 7 – Final Reflection & Evaluation
+- Objective: Overall system evaluation, learning outcomes, future improvements  
+👉 [View Week7](./Week-7/FINAL_REFLECTION.md)
+
+---
+
+## 🛠 Tools Used
+- stress / stress-ng
+- iostat, vmstat, iotop
+- iperf3, ping
+- Apache Bench (ab)
+- sysctl tuning
+- SSH, UFW
+
+---
+
+## 📌 Author
+**[Your Name]**  
+Bachelor of Computer Applications / IT  
+Operating Systems Module
