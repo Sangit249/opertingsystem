@@ -22,16 +22,17 @@ The following installation steps outline how to install each selected applicatio
 - Install stress-ng
 - sudo apt-get install stress-ng
 
-[picture]
+![install](3.1.png)
 
  - Run stress-ng for CPU stress testing
 
 -  stress-ng --cpu 4 --timeout 60s
 
-\[picture\]
+![picture](3.1.2.png)
 
 -  Run stress-ng for RAM stress testing
 - stress-ng --vm 2 --vm-bytes 2G --timeout 60s
+  ![picture](3.1.4.png)
 
 ### For fio (I/O-intensive)
 
@@ -39,6 +40,7 @@ The following installation steps outline how to install each selected applicatio
 - sudo apt-get update
 - install fio
 - sudo apt-get install fio
+  ![fio](fio.png)
 
 ### For iperf3 (Network-intensive)
 
@@ -46,6 +48,8 @@ The following installation steps outline how to install each selected applicatio
 - sudo apt-get update
 - nstall iperf3
 - sudo apt-get install iperf3
+   
+  ![iperf3](iperf.png)
 
 ### For nginx (Server Application)**
 
@@ -55,6 +59,7 @@ The following installation steps outline how to install each selected applicatio
 - sudo apt-get install nginx
 - Start nginx server
 - sudo systemctl start nginx
+  ![nginx](nginx.png)
 
 ## 3. Expected Resource Profiles
 
@@ -77,21 +82,21 @@ To measure performance, the following tools and commands will be used to monitor
 **Tool**: top, htop
 
 **Command**: top or htop
-
+![htop](htop3.png)
 
 
 ## Memory Usage Monitoring
 
 **Tool**: free -m, vmstat
-
+![free](free-m.png)
 
 
 ## Disk I/O Monitoring
 
-- **Tool**: iosta
+- **Tool**: iostat
 
-**Command**:  iostat -xz 1  or sudo iotop
-
+**Command**:  iostat -xz 1 
+![iostat](iostat3.png)
 
 
 ## Network Usage Monitoring**
@@ -99,23 +104,10 @@ To measure performance, the following tools and commands will be used to monitor
 - **Tool**: iftop, netstat
    
 **Command**:  iftop
+![iftop](iftop3.png)
 
 
-## Server-Specific Metrics (For nginx)**
 
-- **Tool**: ab (Apache Benchmark), netstat
-
-**Command**:
-
-- ab -n 1000 -c 10 <http://localhost/>
-
-| **Workload Type** | **Application** | **Actual Command Used** | **Evidence from Screenshots** | **Quantitative Observed Data** |
-| --- | --- | --- | --- | --- |
-| **CPU-intensive** | stress-ng | stress-ng --cpu 4 --timeout 60s | stress-ng: info: \[1717\] successful run completed | Dispatched 4 hogs to test multi-core performance. |
-| **RAM-intensive** | stress-ng | stress-ng --vm 2 --vm-bytes 2G --timeout 60s | stress-ng: info: \[1730\] dispatching hogs: 2 vm | System manages 6.2GB total RAM with 5.7GB available at idle. |
-| **I/O-intensive** | fio | sudo apt-get install fio | fio is already the newest version (3.36-1ubuntu0.1) | Verified installation on hostname sangit. |
-| **Network-intensive** | iperf3 | sudo apt-get install iperf3 | iperf3 is already the newest version (3.16-1build2) | Application ready for server-mode execution. |
-| **Monitoring** | iostat | iostat -xz 1 | Snapshot shows sda and dm-0 disk metrics | Observed 95.91 w_await and 2.09% %util for sda device. |
 
 ## 5. Conclusion
 
