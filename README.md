@@ -62,6 +62,6 @@ Each week addresses a specific learning outcome with practical evidence, CLI com
 ---
 
 ## 📌 Author
-**[Your Name]**  
+**[Sangit Khadka]**  
 Bachelor of Computer Applications / IT  
 Operating Systems Module
