@@ -14,26 +14,33 @@ I implemented **AppArmor** to provide a secondary layer of defense. While standa
 
 - **Command:** sudo aa-status
 - **Outcome:** Confirmed profiles are in **Enforce mode**, preventing unauthorized access even if a service is compromised.
+  ![status](aa-status.png)
 
 ## 1.2 Intrusion Detection & Automation
 
 - **Fail2Ban:** Configured to monitor SSH logs (/var/log/auth.log). It automatically updates firewall rules to drop packets from IPs showing brute-force patterns.
   - **Settings:** maxretry = 3, bantime = 600, findtime = 600.
+      ![fail2ban](fail2ban3.png)
+    
 - **Unattended-Upgrades:** Implemented to ensure the server stays patched against Zero-Day vulnerabilities without manual intervention.
+    ![upgrade](unattended.png)
 
 ## 2\. Automation Scripts
 
 ### 2.1 Security Baseline Script (security-baseline.sh)
 
 **Location:** Server-side. This script audits  Firewall/SSH and  AppArmor/Fail2Ban configurations.
+  ![script](securityscript.png)
 
-photo
+Result:
+  ![result](securityrecsult.png)
+
 
 ## 2.2 Remote Monitoring Script (monitor-server.sh)
 
 **Location:** Workstation-side. This script leverages **SSH** as a secure transport layer to pull metrics from the server remotely.
 
-Photo
+  ![monitor](monitoringscript.png)
 
 ## 3. Quantitative Trade-off Analysis
 
