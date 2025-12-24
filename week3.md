@@ -51,7 +51,7 @@ The following installation steps outline how to install each selected applicatio
    
   ![iperf3](iperf.png)
 
-### For nginx (Server Application)**
+### For nginx (Server Application)
 
 - Update system packages
 - sudo apt-get update
@@ -77,7 +77,7 @@ Below are the expected resource profiles for each application, based on anticipa
 
 To measure performance, the following tools and commands will be used to monitor CPU, RAM, I/O, and network usage during the tests.
 
-## CPU Usage Monitoring**
+## CPU Usage Monitoring
 
 **Tool**: top, htop
 
@@ -99,7 +99,7 @@ To measure performance, the following tools and commands will be used to monitor
 ![iostat](iostat3.png)
 
 
-## Network Usage Monitoring**
+## Network Usage Monitoring
 
 - **Tool**: iftop, netstat
    
