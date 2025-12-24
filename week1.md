@@ -3,7 +3,7 @@
 ## 1. System Architecture Diagram
 This system diagram illustrates network connections between Ubuntu Server and Ubuntu Workstation. These attributes are running inside the virtual box as a virtual machine, enabling remote access and management.
 
-![System Architecture Diagram](path/to/your/image.png)
+![System Architecture Diagram](diagram.png)
 
 **Fig 1: Architecture diagram**
 
@@ -45,7 +45,7 @@ This section explains in detail how the Ubuntu Server and Ubuntu Desktop are con
 ### Network Connection in VirtualBox:
 - **NAT (Network Address Translation)**
 - **Host-only Adapter**
-
+![network](networkconnection.png)
 ### Network Interface Inside VirtualBox:
 This is the network connection of the Ubuntu Workstation, which is attached to NAT, connecting the VM to the outside world. It allows the guest to browse the web and download packages. For the adapter, `Intel PRO/1000MT Desktop (82540EM)` is used, with the MAC address `080027A30770`. Ubuntu Server and Workstation are connected via SSH.
 
@@ -53,12 +53,14 @@ The network connection of the Ubuntu Server inside the virtual machine is as fol
 - **Adapter 1**: Uses Host-only Adapter
   - Attached to: Host-only adapter
   - Purpose: Used for internal communication between host and server for secure SSH access.
-
+![network](networkconnection.png)
 This configuration is ideal for a simulated development or testing environment where the Workstation needs external connectivity, but the Server requires protected, controlled access, primarily from the administrator (the Host) and the client (the Workstation).
 
 ### IP Address of Workstation and Server
 - **Uname**: Displays basic information about the operating system.
 - **Free**: Displays basic information about how much RAM is used and free in the operating system.
 - **Df -h**: Displays basic information about how much disk space is used and free in the operating system.
+  ![df-h](df-h.png)
 - **Ip a**: Displays basic information about the network interface, like `enp0s3` and its IP address.
+  ![ip adress](ipaddr.png)
 - **Lsb_release -a**: Displays basic information about the distributor and version.
