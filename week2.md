@@ -53,6 +53,22 @@ This list focuses on hardening your Ubuntu Server, which is exposed to the netwo
 |                         | Strong Password Policy                  | Enforce minimum length and complexity using the `pam_pwquality` module configuration (e.g., `/etc/security/pwquality.conf`). |
 
 ---
+## Testing approach
+- ssh hardening by key generate and key absed auth only.
+  ![key](keygen.png)
+
+  ![key](keygen1.png)
+
+  -firewall :
+   ![ufw](ufw.png)
+
+  -MAC(Mandatory Access Control):
+  ![apparmor](apparmor.png)
+
+  - User Privilege:
+    ![user](userprevilege.png)
+
+    ![user](userprevilege1.png)
 
 #  Threat Model (Ubuntu-Specific Threats)
 
@@ -63,6 +79,13 @@ This list focuses on hardening your Ubuntu Server, which is exposed to the netwo
 | **Exposed Internal Services**      | An attacker scans the server and finds an open service (e.g., an internal database port, or an exposed monitoring tool) not meant for public access. | Information Disclosure, Spoofing | Restrict UFW: Only expose ports required for the application. Action: `sudo ufw deny from any to any port [Internal Port]` (e.g., 5432 for Postgres). |
 
 ---
+
+Unpatch :
+ ![unpatch](unpatch.png)
+
+ Internal Service :
+  ![ufw](restrictufw.png)
+ 
 
 ## What I Have Learned
 
