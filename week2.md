@@ -105,3 +105,20 @@ By using the STRIDE model, I learned to categorize risks rather than just reacti
 - **AppArmor**: I now understand how Mandatory Access Control (MAC) limits the "blast radius" of a compromised application.
 - **Unattended Upgrades**: I learned that automation is a security feature; keeping the kernel patched automatically is the best defense against known vulnerabilities (CVEs).
 
+
+
+## CLI Comments:
+-ls_l
+![ls](ls-l.png)
+
+-pwd
+![pwd](pwd.png)
+
+-help
+![help](help.png)
+
+-file manuplation:
+![file](filemanuplation-l.png)
+
+-fileview
+![view](fileview.png)
