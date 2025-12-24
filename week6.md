@@ -24,6 +24,11 @@ To analyze operating system behavior, I monitored six core metrics across varyin
 Before inducing load, I established a "clean" baseline to compare against stress results.
 
 - **Command:** ./monitor-server.sh
+  ![baseline](baseline.png)
+
+  ![baseline](baseline1.png)
+
+  
 - **Observation:** The system showed minimal CPU usage (\$<2\\%\$) and low memory pressure, establishing the "normal" state of the hardened OS.
 
 ### 2.2 Application Load Testing**
@@ -31,10 +36,20 @@ Before inducing load, I established a "clean" baseline to compare against stress
 I used the stress tool to simulate heavy workloads on different subsystems.
 
 - **CPU Stress:** stress --cpu 2 --timeout 60s
+  ![stress](stress2.png)
+
+
+     ![htop](htop6.png)
+
   - _Behavior:_ Observed CPU usage hit \$100\\%\$. System latency (ping) increased as the kernel struggled to manage task scheduling.
 - **Memory Stress:** stress --vm 1 --vm-bytes 512M --timeout 60s
+   ![stress](stress2memory.png)
+
+  ![free](free6.png)
+  
   - _Behavior:_ RAM usage peaked, forcing the OS to move data into the swap file, which significantly slowed down overall system responsiveness.
 - **Disk I/O Stress:** stress --io 4 --timeout 60s
+  ![iostat](2iostat.png)
   - _Behavior:_ High disk utilization (\$>90\\%\$) was recorded in iostat, identifying storage as a primary bottleneck.
 
 ### 2.3 Network & Service Response Testing**
@@ -42,6 +57,7 @@ I used the stress tool to simulate heavy workloads on different subsystems.
 I used Apache Bench to test the concurrency limits of the web service.
 
 - **Command:** ab -n 1000 -c 50 http:// 192.168.56.105
+  ![network](networkapplication.png)
 - **Observation:** Measured "Requests per second" and "Time per request." High concurrency initially led to dropped connections before optimization.
 
 ## 3\. Performance Analysis & Bottleneck Identification
@@ -67,6 +83,8 @@ I implemented the following two improvements to remediate the bottlenecks identi
 # Improvement 1: Kernel Swappiness Tuning**
 
 - **Implementation:** sudo sysctl -w vm.swappiness=10
+  ![swap](opt.png)
+  
 - **Evidence:** This reduces the tendency of the OS to swap data out of RAM. **Quantitative Data:** Post-optimization tests showed a \$25\\%\$ reduction in Disk I/O wait times during high memory load.
 
 # Improvement 2: TCP Stack Hardening**
