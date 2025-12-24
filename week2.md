@@ -1,19 +1,10 @@
-# 🚀 Performance Testing Plan: Ubuntu Implementation
+#  Performance Testing Plan: Ubuntu Implementation
 
 The Ubuntu Workstation will host the load generation tool, while the Ubuntu Server will host the application being tested and the monitoring utilities.
 
-## A. Ubuntu Workstation (Load Generator) Setup
 
-| Step | Action                                | Command/Tool                                   | Purpose                                                                 |
-|------|---------------------------------------|------------------------------------------------|-------------------------------------------------------------------------|
-| 1    | Install Load Testing Tool            | `sudo apt install jmeter` (for JMeter) or `sudo apt install apache2-utils` (for basic ab tool) | Create and run realistic user load scenarios against the Ubuntu Server. |
-| 2    | Verify Network Connectivity          | `ping [Server IP]` and `telnet [Server IP] [App Port]` | Ensure stable, non-bottlenecked connection between the generator and the SUT. |
-| 3    | Script Scenarios                     | Use the chosen tool (e.g., JMeter) to record and parameterize transactions (login, search, checkout, etc.) | Create a repeatable, representative test load. |
-| 4    | Monitor Workstation Performance      | Use `htop` or `gnome-system-monitor`             | Ensure the workstation itself is not CPU/Memory bound, which would invalidate the load results. |
 
----
-
-## B. Ubuntu Server (Target/SUT) Monitoring Methodology
+## A. Ubuntu Server (Target/SUT) Monitoring Methodology
 
 You will use built-in or easily installed command-line utilities for detailed remote monitoring during the tests.
 
@@ -31,13 +22,18 @@ You will use built-in or easily installed command-line utilities for detailed re
 ## Testing Approach
 
 - **htop**: Real-time CPU usage, Memory/Swap usage, and a list of running processes.
+  ![htop](htop.png)
 - **iostat**: I/O rates, latency (await), and disk utilization (%util).
+   ![iostat](iostat.png)
 - **nmon**: Real-time bandwidth usage per interface and per connection.
+   ![nmon](nmon.png)
 - **atop**: Advanced monitoring with historical logging.
-
+   ![atop](atop.png)
+ - ps tree:
+    ![pstree](pstree.png)
 ---
 
-# 🛡️ Security Configuration Checklist for Ubuntu
+#  Security Configuration Checklist for Ubuntu
 
 This list focuses on hardening your Ubuntu Server, which is exposed to the network. The Workstation should also follow these steps for user privilege management.
 
@@ -58,7 +54,7 @@ This list focuses on hardening your Ubuntu Server, which is exposed to the netwo
 
 ---
 
-# 🚨 Threat Model (Ubuntu-Specific Threats)
+#  Threat Model (Ubuntu-Specific Threats)
 
 | Threat                              | Description                                                     | STRIDE Category                | Ubuntu Mitigation Command/Action                                           |
 |-------------------------------------|-----------------------------------------------------------------|--------------------------------|--------------------------------------------------------------------------|
