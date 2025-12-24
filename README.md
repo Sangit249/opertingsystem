@@ -1,58 +1,67 @@
- Name:Aman Lamjel
----
- Student Id : A00016965
----
-# 📘 Operating Systems Coursework (Week 1 – Week 7)
-This repository contains my coursework submissions for the **Operating Systems** module from **Week 1 to Week 7**. It covers core operating system concepts including system architecture, process management, memory management, file systems, security, and performance evaluation.
+
+
+# Operating System Performance Evaluation Project
+
+This repository documents a 7-week operating systems project focused on secure system deployment, performance testing, monitoring, and optimisation.  
+Each week addresses a specific learning outcome with practical evidence, CLI commands, and critical analysis.
 
 ---
 
-## 📂 Weekly Overview
+## 📅 Weekly Breakdown (Direct Links)
 
-| Week | Topic | Link |
-|-----:|-------|------|
-| Week 1 | Introduction & System Architecture | [Open Week 1](./week1.md) |
-| Week 2 | Process Management | [Open Week 2](./week2.md) |
-| Week 3 | Memory Management | [Open Week 3](./week3.md) |
-| Week 4 | File Systems | [Open Week 4](./week4.md) |
-| Week 5 | Input/Output Systems | [Open Week 5](./week5.md) |
-| Week 6 | Operating System Security | [Open Week 6](./week6.md) |
-| Week 7 | Security Audit | [Open Week 7](./week7.md) |
+### 🔹 Week 1 – System Planning & OS Selection
+- Objective: Environment planning, OS justification, architecture decisions  
+👉 [View Week 1](./Week-1/PHASE_1.md)
 
 ---
 
-### 🔗 [Week 1: Introduction & System Architecture](./week1.md)
-- Introduction to Operating Systems  
-- Types of Operating Systems  
-- OS components and architecture  
+### 🔹 Week 2 – Installation & Initial Configuration
+- Objective: OS installation, networking setup, user configuration  
+👉 [View Week 2](./Week-2/PHASE_2.md)
 
-### 🔗 [Week 2: Process Management](./week2.md)
-- Process states and lifecycle  
-- CPU scheduling algorithms  
-- Context switching  
+---
 
-### 🔗 [Week 3: Memory Management](./week3.md)
-- Memory allocation techniques  
-- Paging and segmentation  
-- Virtual memory  
+### 🔹 Week 3 – Application Selection for Performance Testing
+- Objective: Selecting CPU, memory, disk, network workloads  
+👉 [View Week 3](./Week-3/PHASE_3.md)
 
-### 🔗 [Week 4: File Systems](./week4.md)
-- File system structures  
-- Directory organization  
-- File access methods  
+---
 
-### 🔗 [Week 5: Input/Output Systems](./week5.md)
-- I/O hardware and device drivers  
-- Disk scheduling  
-- Buffering and caching  
+### 🔹 Week 4 – Security Configuration & Hardening
+- Objective: SSH hardening, firewall rules, user privilege management  
+👉 [View Week 4](./Week-4/PHASE_4.md)
 
-### 🔗 [Week 6: Operating System Security](./week6.md)
-- Security principles  
-- Access control mechanisms  
-- Threats and vulnerabilities  
+---
 
-### 🔗 [Week 7: Security Audit](./week7.md)
-- Security audit process  
-- Risk assessment  
-- Audit findings and recommendations  
+### 🔹 Week 5 – Security Baseline & Risk Mitigation
+- Objective: Security audits, baseline enforcement, trade-off analysis  
+👉 [View Week 5](./Week-5/PHASE_5.md)
 
+---
+
+### 🔹 Week 6 – Performance Evaluation & Optimisation
+- Objective: Baseline vs load testing, bottleneck identification, kernel tuning  
+👉 [View Week 6](./Week-6/PHASE_6.md)
+
+---
+
+### 🔹 Week 7 – Final Reflection & Evaluation
+- Objective: Overall system evaluation, learning outcomes, future improvements  
+👉 [View Week 7](./Week-7/FINAL_REFLECTION.md)
+
+---
+
+## 🛠 Tools Used
+- stress / stress-ng
+- iostat, vmstat, iotop
+- iperf3, ping
+- Apache Bench (ab)
+- sysctl tuning
+- SSH, UFW
+
+---
+
+## 📌 Author
+**[Your Name]**  
+Bachelor of Computer Applications / IT  
+Operating Systems Module
