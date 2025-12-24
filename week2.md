@@ -118,7 +118,7 @@ By using the STRIDE model, I learned to categorize risks rather than just reacti
 ![help](help.png)
 
 -file manuplation:
-![file](filemanuplation-l.png)
+![file](filemanuplation.png)
 
 -fileview
 ![view](fileview.png)
