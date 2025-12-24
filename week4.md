@@ -30,7 +30,7 @@
 
 **Technical Execution:**
 
-- **Key Generation (Workstation - 192.168.56.104):**
+- Key Generation (Workstation - 192.168.56.104):
 
     - ssh-keygen -t ed25519 -f ~/.ssh/sangit_key
 
@@ -42,7 +42,7 @@
     - ssh-copy-id -i ~/.ssh/sangit_key.pub sangit_admin@192.168.56.105
       ![keygen](keygen42.png)
 
-- Server Hardening (/etc/ssh/sshd_config):**
+- Server Hardening (/etc/ssh/sshd_config):
 
   - Configured via SSH as required
 
@@ -58,7 +58,7 @@
 - **Security Gain:** Setting PasswordAuthentication no eliminates 100% of automated password-guessing (brute-force) attempts.
 - **Operational Risk:** If the private key file on the workstation is lost or corrupted, administrative access is completely lost, requiring physical or console-level intervention.
 
-## 3. Firewall Implementation (UFW)**
+## 3. Firewall Implementation (UFW)
 
 **Objective:** To restrict the server's attack surface by permitting traffic only from a verified administrative workstation.
 
@@ -98,8 +98,6 @@ To demonstrate infrastructure evolution, the following transitions :
 
 
 ## 5. Reflection & Problem Solving
-
-# The "Learning Journey":
 
 - **Technical Challenge:** During the configuration of sshd_config, an initial error in syntax caused the SSH service to fail to restart.
 - **Resolution:** By reviewing the system logs (journalctl -xe), the typo was identified and corrected before the session was closed, avoiding a permanent lockout.
