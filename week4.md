@@ -16,7 +16,7 @@
 
   - sudo usermod -aG sudo sangit_admin
 
-- **Explanation:** Creating a separate admin user prevents the daily use of the root account, reducing the risk of accidental system-wide damage.
+- **Explanation:** Create a separate admin user prevents the daily use of the root account and reduce the risk of accidental system-wide damage.
 - **Evidence of Success:**
      ![user](usser.png)
 
@@ -55,8 +55,8 @@
 
 **Quantitative Trade-off Analysis:**
 
-- **Security Gain:** Setting PasswordAuthentication no eliminates 100% of automated password-guessing (brute-force) attempts.
-- **Operational Risk:** If the private key file on the workstation is lost or corrupted, administrative access is completely lost, requiring physical or console-level intervention.
+- **Security Gain:** Setting PasswordAuthentication  to no eliminates 100% of automated password-guessing (brute-force) attempts.
+- **Operational Risk:** If the private key file on the workstation is lost or corrupted then administrative access is completely lost, requiring physical or console-level intervention.
 
 ## 3. Firewall Implementation (UFW)
 
@@ -99,6 +99,7 @@ To demonstrate infrastructure evolution, the following transitions :
 
 ## 5. Reflection & Problem Solving
 
-- **Technical Challenge:** During the configuration of sshd_config, an initial error in syntax caused the SSH service to fail to restart.
-- **Resolution:** By reviewing the system logs (journalctl -xe), the typo was identified and corrected before the session was closed, avoiding a permanent lockout.
 - **Theory to Practice:** This phase transitioned theoretical security controls (firewalls and keys) into a functional, hardened environment. The administrative constraint forced me to verify my configurations in real-time before logging out.
+- **Technical Challenge:** During the setup of sshd_config, there was a initial problem in terms of syntax that resulted in a restart of the SSH service.
+- **Resolution:** The mistake was rectified by reviewing the system logs (journalctl -xe) before the session was closed. A permanent lockout was thus prevented.
+
