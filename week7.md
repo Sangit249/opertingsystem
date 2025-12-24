@@ -13,7 +13,8 @@ Lynis was used to perform a deep system scan to calculate a **Hardening Index**.
 - **Command:** sudo lynis audit system
 - **Lynis Scores:**
   - **Initial Score:** 62 (Baseline after standard install)
-  - **Final Score:** **84** (After remediation and hardening)
+  - **Final Score:** **67** (After remediation and hardening)
+    ![score](scorebefore.png)
 
 ### Key Remediation Actions:
 
@@ -21,20 +22,27 @@ Lynis was used to perform a deep system scan to calculate a **Hardening Index**.
 - Hardened the SSH configuration by disabling root login.
 - Installed a malware scanner (chkrootkit).
 
+ ![score](scoreafter.png)
+
 ## 2\. Network Security Testing (Nmap)
 
 I conducted an external network scan from the **Workstation** to ensure the firewall (UFW) was correctly filtering traffic.
 
 - **Command:** nmap -sV -p- -T4 \[Server_IP\]
 - Results:
+   ![nmap](nmap.png)
 
 ## 3\. SSH Security & Access Control Verification
 
 I manually verified that the identity and access management (IAM) policies were active.
 
 - **SSH Verification:** Running grep "PermitRootLogin" /etc/ssh/sshd_config confirms the value is no.
+   ![ssh](ssh7.png)
 - **Access Control:** Attempting to log in as root via SSH resulted in a "Permission Denied" error, confirming that only the sangit_admin user can access the system.
+   ![acess](acesscontrol.png)
 - **SUID Check:** I ran find / -perm -4000 -type f to ensure no new or suspicious "Set User ID" binaries were present that could lead to privilege escalation.
+
+   ![suid](suid.png)
 
 ## 4\. Service Inventory & Justification
 
