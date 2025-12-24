@@ -111,6 +111,6 @@ To measure performance, the following tools and commands will be used to monitor
 
 ## 5. Conclusion
 
-The selected applications represent a broad range of workloads across CPU, RAM, I/O, network, and server application types. Using these applications will help simulate real-world conditions and evaluate the performance of a system under stress. Each tool is installed and monitored using standard system performance monitoring utilities to track CPU, memory, disk I/O, and network usage.
+The chosen applications cover a wide range of workload scenarios on CPU, Memory, I/O, Network, and Server application categories. Running these applications on the targeted system will enable simulating real-world scenarios and testing how the targeted system performs under stressful conditions. All the tools are installed and checked using common system resource usage tools to measure CPU, Memory, Disk I/O, and Network resource usage.
 
-This journal provides a structured approach for performance testing and monitoring, ensuring that each workload type is adequately tested.
+
