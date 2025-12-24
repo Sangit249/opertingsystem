@@ -33,7 +33,7 @@ I implemented **AppArmor** to provide a secondary layer of defense. While standa
   ![script](securityscript.png)
 
 Result:
-  ![result](securityrecsult.png)
+  ![result](securityresult.png)
 
 
 ## 2.2 Remote Monitoring Script (monitor-server.sh)
