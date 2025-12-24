@@ -18,7 +18,9 @@
 
 - **Explanation:** Creating a separate admin user prevents the daily use of the root account, reducing the risk of accidental system-wide damage.
 - **Evidence of Success:**
-       groups sangit_admin
+     ![user](usser.png)
+
+![user](user1.png)  
 
  The output shows sangit_admin : sangit_admin sudo, confirming successful privilege management.
 
@@ -33,10 +35,12 @@
     - ssh-keygen -t ed25519 -f ~/.ssh/sangit_key
 
  Ed25519 was selected over RSA for its superior security-to-performance ratio and smaller key size.
+ ![keygen](keygen4.png)
 
 - **Key Deployment:**
 
     - ssh-copy-id -i ~/.ssh/sangit_key.pub sangit_admin@192.168.56.105
+      ![keygen](keygen42.png)
 
 - Server Hardening (/etc/ssh/sshd_config):**
 
@@ -47,6 +51,7 @@
   - PasswordAuthentication no
 
   - PermitRootLogin no
+    ![hardening](sshhardening1.png)
 
 **Quantitative Trade-off Analysis:**
 
@@ -67,6 +72,7 @@
 
 - **Host-Restricted SSH Access:**
  - sudo ufw allow from 192.168.56.104 to any port 22 proto tcp
+   ![firewall](firewall.png)
 
 - **Explanation:** This rule explicitly binds SSH access to the Workstation IP found in previous session logs.
 
@@ -80,7 +86,7 @@ Capture the output of sudo ufw status verbose:
 
 ## 4. Configuration Comparisons (Before vs. After)
 
-To demonstrate infrastructure evolution, the following transitions were documented:
+To demonstrate infrastructure evolution, the following transitions :
 
 | **Feature** | **Baseline State (Before)** | **Hardened State (After)** |
 | --- | --- | --- |
