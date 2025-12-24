@@ -64,3 +64,4 @@ This configuration is ideal for a simulated development or testing environment w
 - **Ip a**: Displays basic information about the network interface, like `enp0s3` and its IP address.
   ![ip adress](ipaddr.png)
 - **Lsb_release -a**: Displays basic information about the distributor and version.
+  ![finals](final.png)
